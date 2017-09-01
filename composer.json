@@ -1,0 +1,18 @@
+{
+    "name": "bagjo/domain-entities-shop",
+    "description": "Domain entities for online shop",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Robert",
+            "email": "fatkhullin.robert@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Entities\\": "lib/Entities/"
+        }
+    }
+}

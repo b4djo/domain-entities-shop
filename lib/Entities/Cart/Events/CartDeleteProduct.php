@@ -1,8 +1,8 @@
 <?php
 
-namespace DesignPatterns\Structural\Facade\Entities\Cart\Events;
+namespace Entities\Cart\Events;
 
-use DesignPatterns\Structural\Facade\Entities\Product\ProductId;
+use Entities\Product\ProductId;
 
 /**
  * Class CartDeleteProduct

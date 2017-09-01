@@ -1,9 +1,10 @@
 <?php
 
-namespace DesignPatterns\Structural\Facade\Entities\Cart;
+namespace Entities\Cart;
 
-use DesignPatterns\Structural\Facade\Entities\Product\Product;
-use DesignPatterns\Structural\Facade\Entities\Product\Products;
+use Entities\Product\Product;
+use Entities\Product\Products;
+
 
 /**
  * Class Cart

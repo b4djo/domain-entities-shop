@@ -1,6 +1,6 @@
 <?php
 
-namespace DesignPatterns\Structural\Facade\Entities\Product;
+namespace Entities\Product;
 
 /**
  * Class Product

@@ -5,7 +5,6 @@ namespace Entities\Cart;
 use Entities\Product\Product;
 use Entities\Product\Products;
 
-
 /**
  * Class Cart
  * @package DesignPatterns\Structural\Facade
@@ -40,7 +39,7 @@ class Cart
     private function checkProduct(Product $product)
     {
         if (!$product->isActive()) {
-            throw new \DomainException('Product is not active.');
+            throw new \DomainException('Not active product, not can was added into cart.');
         }
     }
 
@@ -51,15 +50,19 @@ class Cart
      */
     public function removeProduct($index)
     {
+        if ($this->getCount() === 0) {
+            throw new \DomainException('Can not remove the product from the empty shopping cart.');
+        }
+
         return $this->products->remove($index);
     }
 
     /**
-     * @return Product[]
+     * @return Products
      */
     public function getProducts()
     {
-        return $this->products->getAll();
+        return $this->products;
     }
 
     /**
@@ -70,9 +73,16 @@ class Cart
         return !$this->products;
     }
 
-
     public function clear()
     {
         $this->products = [];
+    }
+
+    /**
+     * @return int
+     */
+    public function getCount()/*: int*/
+    {
+        return count($this->products->getAll());
     }
 }

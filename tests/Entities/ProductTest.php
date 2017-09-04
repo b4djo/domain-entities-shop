@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Structural\Facade;
+namespace Tests\Entities;
 
 use Entities\Product\Name;
 use Entities\Product\Product;
@@ -8,13 +8,24 @@ use Entities\Product\ProductId;
 use Entities\Product\Status;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class ProductTest
+ * @package Tests\Entities
+ */
 class ProductTest extends TestCase
 {
+    /**
+     * ProductTest constructor.
+     *
+     * @param null $name
+     * @param array $data
+     * @param string $dataName
+     */
     public function __construct($name = null, array $data = [], $dataName = '')
     {
         parent::__construct($name, $data, $dataName);
 
-        require_once __DIR__ . '/../../../vendor/autoload.php';
+        require_once __DIR__ . '/../../vendor/autoload.php';
     }
 
     public function testCreateProduct()

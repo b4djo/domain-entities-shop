@@ -52,4 +52,12 @@ class Product
     {
         return $this->status->isActive();
     }
+
+    /**
+     * @return Status
+     */
+    public function getStatus()/*: Status*/
+    {
+        return $this->status;
+    }
 }

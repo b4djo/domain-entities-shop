@@ -9,7 +9,9 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {},
+    "require": {
+        "beberlei/assert": "^2.7"
+    },
     "autoload": {
         "psr-4": {
             "Entities\\": "lib/Entities/",

@@ -2,8 +2,10 @@
 
 namespace Entities\Product;
 
+use Assert\Assertion;
 use Entities\Base\AggregateRoot;
 use Entities\Base\EventTrait;
+use Webmozart\Assert\Assert;
 
 /**
  * Class Product
@@ -37,6 +39,10 @@ class Product implements AggregateRoot
      */
     public function __construct(ProductId $id, Name $name, Status $status)
     {
+        Assertion::notEmpty($id);
+        Assertion::notEmpty($name);
+        Assertion::notEmpty($status);
+
         $this->id   = $id;
         $this->name = $name;
         $this->status = $status;

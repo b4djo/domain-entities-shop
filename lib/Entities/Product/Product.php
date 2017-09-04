@@ -2,12 +2,17 @@
 
 namespace Entities\Product;
 
+use Entities\Base\AggregateRoot;
+use Entities\Base\EventTrait;
+
 /**
  * Class Product
  * @package DesignPatterns\Structural\Facade
  */
-class Product
+class Product implements AggregateRoot
 {
+    use EventTrait;
+
     /**
      * @var ProductId
      */

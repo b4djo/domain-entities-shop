@@ -60,4 +60,20 @@ class Product
     {
         return $this->status;
     }
+
+    /**
+     * @return ProductId
+     */
+    public function getId()/*: ProductId*/
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return Name
+     */
+    public function getName()/*: Name*/
+    {
+        return $this->name;
+    }
 }

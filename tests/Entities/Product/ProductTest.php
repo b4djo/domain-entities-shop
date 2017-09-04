@@ -20,11 +20,14 @@ class ProductTest extends TestCase
     public function testCreateProduct()
     {
         $product = new Product(
-            new ProductId(1),
-            new Name('Test product 1'),
-            new Status('active_yes')
+            $id     = new ProductId(1),
+            $name   = new Name('Test product 1'),
+            $status = new Status('active_yes')
         );
 
+        $this->assertEquals($id, $product->getId());
+        $this->assertEquals($name, $product->getName());
+        $this->assertEquals($status, $product->getStatus());
         $this->assertInstanceOf(Product::class, $product);
     }
 

@@ -5,7 +5,7 @@ namespace Entities\Product;
 use Assert\Assertion;
 use Entities\Base\AggregateRoot;
 use Entities\Base\EventTrait;
-use Webmozart\Assert\Assert;
+use Entities\Product\Events\ProductRemoved;
 
 /**
  * Class Product
@@ -57,6 +57,14 @@ class Product implements AggregateRoot
     }
 
     /**
+     * @param Status $status
+     */
+    public function changeStatus(Status $status)
+    {
+        $this->status = $status;
+    }
+
+    /**
      * @return bool
      */
     public function isActive()
@@ -86,5 +94,10 @@ class Product implements AggregateRoot
     public function getName()/*: Name*/
     {
         return $this->name;
+    }
+
+    public function remove()
+    {
+        $this->recordEvent(new ProductRemoved($this->id));
     }
 }

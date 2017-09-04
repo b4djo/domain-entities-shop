@@ -2,6 +2,8 @@
 
 namespace Entities\Base;
 
+use Assert\Assertion;
+
 /**
  * Class Id
  * @package Entities\Base
@@ -20,9 +22,7 @@ abstract class Id
      */
     public function __construct($id = null)
     {
-        if (empty($id)) {
-            throw new \InvalidArgumentException('Value "id" is empty, but non empty value was expected.');
-        }
+        Assertion::notEmpty($id);
         $this->id = $id;
     }
 

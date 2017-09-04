@@ -10,12 +10,15 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "beberlei/assert": "^2.7"
+        "beberlei/assert": "^2.7",
+        "ramsey/uuid": "^3.7"
     },
     "autoload": {
         "psr-4": {
             "Entities\\": "lib/Entities/",
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "Services\\": "lib/services",
+            "Repositories\\": "lib/repositories"
         }
     }
 }

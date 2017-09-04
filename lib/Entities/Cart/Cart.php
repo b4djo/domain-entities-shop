@@ -2,6 +2,10 @@
 
 namespace Entities\Cart;
 
+use Entities\Base\AggregateRoot;
+use Entities\Base\EventTrait;
+use Entities\Cart\Events\CartCreated;
+use Entities\Cart\Events\CartRemoveProduct;
 use Entities\Product\Product;
 use Entities\Product\Products;
 
@@ -9,8 +13,10 @@ use Entities\Product\Products;
  * Class Cart
  * @package DesignPatterns\Structural\Facade
  */
-class Cart
+class Cart implements AggregateRoot
 {
+    use EventTrait;
+
     /**
      * @var Products
      */
@@ -22,6 +28,7 @@ class Cart
     public function __construct()
     {
         $this->products = new Products([]);
+        $this->recordEvent(new CartCreated());
     }
 
     /**
@@ -44,9 +51,7 @@ class Cart
     }
 
     /**
-     * @param $index
-     *
-     * @return Product
+     * @param int $index
      */
     public function removeProduct($index)
     {
@@ -54,7 +59,9 @@ class Cart
             throw new \DomainException('Can not remove the product from the empty shopping cart.');
         }
 
-        return $this->products->remove($index);
+        $product = $this->products->remove($index);
+
+        $this->recordEvent(new CartRemoveProduct($product));
     }
 
     /**
@@ -84,5 +91,10 @@ class Cart
     public function getCount()/*: int*/
     {
         return count($this->products->getAll());
+    }
+
+    public function getId()
+    {
+        return null;
     }
 }

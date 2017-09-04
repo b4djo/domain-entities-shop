@@ -11,6 +11,11 @@ class Status
     const STATUS_ACTIVE_YES = 'active_yes';
     const STATUS_ACTIVE_NO  = 'active_no';
 
+    const LIST_STATUSES = [
+        self::STATUS_ACTIVE_YES => 'активен',
+        self::STATUS_ACTIVE_NO  => 'неактивен',
+    ];
+
     /**
      * @var string
      */
@@ -23,6 +28,10 @@ class Status
      */
     public function __construct($value)
     {
+        if (in_array($value, array_flip(self::LIST_STATUSES))) {
+            $this->value = self::STATUS_ACTIVE_NO;
+        }
+
         $this->value = $value;
     }
 

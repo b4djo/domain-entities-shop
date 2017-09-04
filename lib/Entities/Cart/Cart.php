@@ -93,6 +93,9 @@ class Cart implements AggregateRoot
         return count($this->products->getAll());
     }
 
+    /**
+     * @return null
+     */
     public function getId()
     {
         return null;

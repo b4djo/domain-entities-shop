@@ -1,6 +1,9 @@
 <?php
 
-namespace Entities\Product;
+namespace Entities\Product\Events;
+
+use Entities\Product\ProductId;
+use Entities\Product\Status;
 
 /**
  * Class ProductChangeStatus

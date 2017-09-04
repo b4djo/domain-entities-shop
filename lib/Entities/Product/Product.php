@@ -4,6 +4,7 @@ namespace Entities\Product;
 
 use Entities\Base\AggregateRoot;
 use Entities\Base\EventTrait;
+use Entities\Product\Events\ProductChangeStatus;
 use Entities\Product\Events\ProductCreated;
 use Entities\Product\Events\ProductRemoved;
 use Entities\Product\Events\ProductRenamed;
@@ -105,5 +106,13 @@ class Product implements AggregateRoot
     public function remove()
     {
         $this->recordEvent(new ProductRemoved($this->id));
+    }
+
+    /**
+     * @return \DateTimeImmutable
+     */
+    public function getCreateDate()/*: \DateTimeImmutable*/
+    {
+        return $this->createDate;
     }
 }

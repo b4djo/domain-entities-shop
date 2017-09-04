@@ -2,10 +2,11 @@
 
 namespace Entities\Product;
 
-use Assert\Assertion;
 use Entities\Base\AggregateRoot;
 use Entities\Base\EventTrait;
+use Entities\Product\Events\ProductCreated;
 use Entities\Product\Events\ProductRemoved;
+use Entities\Product\Events\ProductRenamed;
 
 /**
  * Class Product
@@ -48,6 +49,7 @@ class Product implements AggregateRoot
         $this->name = $name;
         $this->status = $status;
         $this->createDate = new \DateTimeImmutable();
+        $this->recordEvent(new ProductCreated($this->id));
     }
 
     /**
@@ -56,6 +58,7 @@ class Product implements AggregateRoot
     public function rename(Name $name)
     {
         $this->name = $name;
+        $this->recordEvent(new ProductRenamed($this->id, $name));
     }
 
     /**
@@ -64,6 +67,7 @@ class Product implements AggregateRoot
     public function changeStatus(Status $status)
     {
         $this->status = $status;
+        $this->recordEvent(new ProductChangeStatus($this->id, $status));
     }
 
     /**

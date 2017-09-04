@@ -2,32 +2,12 @@
 
 namespace Entities\Product;
 
+use Entities\Base\Id;
+
 /**
  * Class ProductId
  * @package DesignPatterns\Structural\Facade\Entities\Product
  */
-class ProductId
+class ProductId extends Id
 {
-    /**
-     * @var int
-     */
-    private $id;
-
-    /**
-     * ProductId constructor.
-     *
-     * @param int $id
-     */
-    public function __construct($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return int
-     */
-    public function getId()/*: int*/
-    {
-        return $this->id;
-    }
 }

@@ -31,6 +31,11 @@ class Product implements AggregateRoot
     private $status;
 
     /**
+     * @var \DateTimeImmutable
+     */
+    private $createDate;
+
+    /**
      * Product constructor.
      *
      * @param ProductId $id
@@ -39,13 +44,10 @@ class Product implements AggregateRoot
      */
     public function __construct(ProductId $id, Name $name, Status $status)
     {
-        Assertion::notEmpty($id);
-        Assertion::notEmpty($name);
-        Assertion::notEmpty($status);
-
         $this->id   = $id;
         $this->name = $name;
         $this->status = $status;
+        $this->createDate = new \DateTimeImmutable();
     }
 
     /**

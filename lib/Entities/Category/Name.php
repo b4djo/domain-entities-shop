@@ -1,10 +1,10 @@
 <?php
 
-namespace Entities\Product;
+namespace Entities\Category;
 
 /**
  * Class Name
- * @package Entities\Product
+ * @package Entities\Category
  */
 class Name
 {
@@ -18,7 +18,7 @@ class Name
      *
      * @param string $name
      */
-    public function __construct($name)
+    public function __construct(string $name)
     {
         $this->name = $name;
     }

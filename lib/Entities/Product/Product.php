@@ -4,6 +4,7 @@ namespace Entities\Product;
 
 use Entities\Base\AggregateRoot;
 use Entities\Base\EventTrait;
+use Entities\Category\Category;
 use Entities\Product\Events\ProductChangeStatus;
 use Entities\Product\Events\ProductCreated;
 use Entities\Product\Events\ProductRemoved;
@@ -11,7 +12,7 @@ use Entities\Product\Events\ProductRenamed;
 
 /**
  * Class Product
- * @package DesignPatterns\Structural\Facade
+ * @package Entities\Product
  */
 class Product implements AggregateRoot
 {
@@ -36,6 +37,12 @@ class Product implements AggregateRoot
      * @var \DateTimeImmutable
      */
     private $createDate;
+
+    /**
+     * @var Category[]
+     */
+    private $categories;
+
 
     /**
      * Product constructor.
@@ -114,5 +121,13 @@ class Product implements AggregateRoot
     public function getCreateDate()/*: \DateTimeImmutable*/
     {
         return $this->createDate;
+    }
+
+    /**
+     * @return Category[]
+     */
+    public function getCategories()/*: array*/
+    {
+        return $this->categories;
     }
 }

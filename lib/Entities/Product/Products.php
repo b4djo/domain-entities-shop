@@ -4,7 +4,7 @@ namespace Entities\Product;
 
 /**
  * Class Products
- * @package DesignPatterns\Structural\Facade\Entities\Product
+ * @package Entities\Product
  */
 class Products
 {

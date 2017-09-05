@@ -1,10 +1,10 @@
 <?php
 
-namespace Entities\Product;
+namespace Entities\Category;
 
 /**
  * Class Status
- * @package Entities\Product
+ * @package Entities\Category
  */
 class Status extends \Entities\Base\Status
 {

@@ -159,4 +159,28 @@ class Category
     {
         return $this->status->isActive();
     }
+
+    /**
+     * @param Name $name
+     */
+    public function rename(Name $name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param Status $status
+     */
+    public function changeStatus(Status $status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return Status
+     */
+    public function getStatus()/*: Status*/
+    {
+        return $this->status;
+    }
 }

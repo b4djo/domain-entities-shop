@@ -111,4 +111,36 @@ class CategoryTest extends TestCase
 
         $this->assertCount(3, $category->getProducts());
     }
+
+    public function testRenameCategory()
+    {
+        $category = new Category(
+            new CategoryId(Uuid::uuid4()),
+            new \Entities\Category\Name('Category 4'),
+            new Description('Description 4'),
+            new Title('Title 4'),
+            new Slug('Slug category 4'),
+            new \Entities\Category\Status('active_yes')
+        );
+
+        $category->rename($newName = new \Entities\Category\Name('Category 5'));
+
+        $this->assertEquals($newName, $category->getName());
+    }
+
+    public function testChangeCategory()
+    {
+        $category = new Category(
+            new CategoryId(Uuid::uuid4()),
+            new \Entities\Category\Name('Category 4'),
+            new Description('Description 4'),
+            new Title('Title 4'),
+            new Slug('Slug category 4'),
+            new \Entities\Category\Status('active_yes')
+        );
+
+        $category->changeStatus($newStatus = new \Entities\Category\Status('active_no'));
+
+        $this->assertEquals($newStatus, $category->getStatus());
+    }
 }

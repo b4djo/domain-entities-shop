@@ -24,11 +24,11 @@ abstract class Status
      */
     public function __construct($value)
     {
-        $this->value = $value;
-
         if (!in_array($value, array_flip(self::LIST_STATUSES))) {
-            $this->value = self::STATUS_ACTIVE_NO;
+            throw new \DomainException('Status is not define');
         }
+
+        $this->value = $value;
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Entities;
+namespace Tests\Product;
 
 use Entities\Product\Events\ProductCreated;
 use Entities\Product\Name;
@@ -27,7 +27,7 @@ class ProductTest extends TestCase
     {
         parent::__construct($name, $data, $dataName);
 
-        require_once __DIR__ . '/../../vendor/autoload.php';
+        require_once __DIR__ . '/../../../vendor/autoload.php';
     }
 
     public function testCreateProduct()
@@ -51,7 +51,7 @@ class ProductTest extends TestCase
         $this->assertInstanceOf(Product::class, $product);
     }
 
-    public function testCreateProductWithNotExistStatus()
+   /* public function testCreateProductWithNotExistStatus()
     {
         $product = new Product(
             new ProductId(Uuid::uuid4()),
@@ -60,16 +60,11 @@ class ProductTest extends TestCase
         );
 
         $this->assertEquals(Status::STATUS_ACTIVE_NO, $product->getStatus()->getValue());
-    }
+    }*/
 
     public function testRenameProduct()
     {
-        $product = new Product(
-            new ProductId(Uuid::uuid4()),
-            new Name('Product 3'),
-            new Status('active_no')
-        );
-
+        $product = ProductBuilder::instance()->nonActive()->build();
         $product->rename($newName = new Name('Product 4'));
 
         $this->assertEquals($newName, $product->getName());
@@ -77,12 +72,7 @@ class ProductTest extends TestCase
 
     public function testChangeStatus()
     {
-        $product = new Product(
-            new ProductId(Uuid::uuid4()),
-            new Name('Product 5'),
-            new Status('active_yes')
-        );
-
+        $product = ProductBuilder::instance()->build();
         $product->changeStatus($newStatus = new Status('active_no'));
 
         $this->assertEquals($newStatus, $product->getStatus());

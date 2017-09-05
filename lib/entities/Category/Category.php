@@ -68,7 +68,7 @@ class Category
         Description $description,
         Title $title,
         Slug $slug,
-        Status $status,
+        Status $status = null,
         ParentId $parentId = null
     ) {
         $this->id          = $id;
@@ -77,7 +77,12 @@ class Category
         $this->description = $description;
         $this->title       = $title;
         $this->slug        = $slug;
-        $this->status      = $status;
+
+        if ($status) {
+            $this->status = $status;
+        } else {
+            $this->status = new Status('active_yes');
+        }
 
         if ($parentId) {
             $this->parentId = $parentId;
@@ -182,5 +187,13 @@ class Category
     public function getStatus()/*: Status*/
     {
         return $this->status;
+    }
+
+    /**
+     * @param string $parentId
+     */
+    public function setParentId(string $parentId)
+    {
+        $this->parentId = new ParentId(new CategoryId($parentId));
     }
 }

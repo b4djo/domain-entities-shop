@@ -1,6 +1,6 @@
 <?php
 
-namespace Entities;
+namespace Tests\Cart;
 
 use Entities\Cart\Cart;
 use Entities\Product\Name;
@@ -27,7 +27,7 @@ class CartTest extends TestCase
     {
         parent::__construct($name, $data, $dataName);
 
-        require_once __DIR__ . '/../../vendor/autoload.php';
+        require_once __DIR__ . '/../../../vendor/autoload.php';
     }
 
     public function testCreateCart()

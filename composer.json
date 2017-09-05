@@ -15,10 +15,10 @@
     },
     "autoload": {
         "psr-4": {
-            "Entities\\": "lib/Entities/",
-            "Tests\\": "tests/",
-            "Services\\": "lib/services",
-            "Repositories\\": "lib/repositories"
+            "Entities\\": "lib/entities/",
+            "Tests\\": "tests/entities/",
+            "Services\\": "lib/services/",
+            "Repositories\\": "lib/repositories/"
         }
     }
 }

@@ -11,7 +11,8 @@
     "minimum-stability": "stable",
     "require": {
         "beberlei/assert": "^2.7",
-        "ramsey/uuid": "^3.7"
+        "ramsey/uuid": "^3.7",
+        "rych/phpass": "3.0.*@beta"
     },
     "autoload": {
         "psr-4": {
